@@ -1,23 +1,25 @@
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
 #include "main.h"
 
 /**
  * _printf - function to print according to format specifiers
+ * @format: a string of characters
+ * @...: variable args
+ *
+ * Return: number of characters printed
  */
 
 int _printf(const char *format, ...)
 {
 	int len = 0;
 	va_list m;
+	int i = 0;
 	va_start(m, format);
 	
-	while (*format)
+	while (format[i])
 	{
-		if (*format != '%')
+		if ([i]format != '%')
 		{
-			putchar(*format);
+			putchar(format[i]);
 			len++;
 		}
 		else
