@@ -19,7 +19,7 @@ int _print_str(va_list s)
 		len = _strlen(m);
 		for (i = 0; i < len; i++)
 			_putchar(m[i]);
-		return (len)
+		return (len);
 	}
 	else
 	{

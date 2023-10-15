@@ -2,7 +2,7 @@
 
 /**
  * _print_char - function that prints a char
- * @p - arguments
+ * @p - parameter
  * Return: 0
  */
 
@@ -12,5 +12,5 @@ int _print_char(va_list p)
 
 	m = va_arg(p, int);
 	_putchar(m);
-	return(0);
+	return (0);
 }
