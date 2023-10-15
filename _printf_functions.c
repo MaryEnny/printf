@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 	{
 		if ([i]format != '%')
 		{
-			putchar(format[i]);
+			_putchars(format[i]);
 			len++;
 		}
 		else
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (format[i] == 'c')
 			{
-				putchar(c);
+				_putchars(c);
 				len++;
 			}
 			else if (format[i] == 's')
@@ -36,20 +36,20 @@ int _printf(const char *format, ...)
 					str = "(null)";
 				while (str[j])
 				{
-					putchar(str[j]);
+					_putchars(str[j]);
 					str++;
 					len++;
 				}
 			}
 			else if (format[i] == '%')
 			{
-				putchar('%');
+				_putchars('%');
 				len++;
 			}
 			else
 			{
-				putchar('%');
-				putchar(format[i]);
+				_putchars('%');
+				_putchars(format[i]);
 				len += 2;
 			}
 		}
@@ -57,4 +57,17 @@ int _printf(const char *format, ...)
 	}
 	va_end(m);
 	return len;
+}
+#include <unistd.h>
+
+/**
+ * _putchars - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchars(char c)
+{
+	return (write(1, &c, 1));
 }
