@@ -11,13 +11,13 @@
 int _printf(const char *format, ...)
 {
 	int len = 0, i = 0, j = 0;
-	char *str = va_arg(m, char *), c = va_arg(m, int);
 	va_list m;
+	char *str = va_arg(m, char *), c = va_arg(m, int);
 	va_start(m, format);
 	
 	while (format[i])
 	{
-		if ([i]format != '%')
+		if (format[i] != '%')
 		{
 			_putchars(format[i]);
 			len++;
@@ -57,17 +57,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(m);
 	return len;
-}
-#include <unistd.h>
-
-/**
- * _putchars - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchars(char c)
-{
-	return (write(1, &c, 1));
 }

@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 int _printf(const char *format, ...);
-int _putchar(char c);
+int _putchars(char c);
 int _print_char(va_list p);
 int _print_str(va_list s);
 int _strlen(char *s);
