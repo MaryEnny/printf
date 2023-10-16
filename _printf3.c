@@ -7,6 +7,6 @@
 
 int _print_percentage(void)
 {
-	_putchar(37);
+	_putchars(37);
 	return (0);
 }

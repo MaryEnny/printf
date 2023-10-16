@@ -1,9 +1,9 @@
 #include <limits.h>
-#include <stdio.h>
 #include "main.h"
 
 /**
  * main - Entry point
+ * @_printf: simplified version of the printf function
  *
  * Return: Always 0
  */
@@ -38,5 +38,6 @@ int main(void)
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
+    _printf("%b\n", 98);
     return (0);
 }

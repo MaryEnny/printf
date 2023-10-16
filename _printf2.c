@@ -18,14 +18,14 @@ int _print_str(va_list s)
 		m = "(nil)";
 		len = _strlen(m);
 		for (i = 0; i < len; i++)
-			_putchar(m[i]);
+			_putchars(m[i]);
 		return (len);
 	}
 	else
 	{
 		len = _strlen(m);
 		for (i = 0; i < len; i++)
-			_putchar(m[i]);
+			_putchars(m[i]);
 		return (len);
 	}
 }

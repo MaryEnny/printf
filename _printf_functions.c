@@ -11,15 +11,15 @@
 int _printf(const char *format, ...)
 {
 	int len = 0, i = 0, j = 0;
-	char *str = va_arg(m, char *), c = va_arg(m, int);
 	va_list m;
+	char *str = va_arg(m, char *), c = va_arg(m, int);
 	va_start(m, format);
 	
 	while (format[i])
 	{
-		if ([i]format != '%')
+		if (format[i] != '%')
 		{
-			putchar(format[i]);
+			_putchars(format[i]);
 			len++;
 		}
 		else
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (format[i] == 'c')
 			{
-				putchar(c);
+				_putchars(c);
 				len++;
 			}
 			else if (format[i] == 's')
@@ -36,20 +36,20 @@ int _printf(const char *format, ...)
 					str = "(null)";
 				while (str[j])
 				{
-					putchar(str[j]);
+					_putchars(str[j]);
 					str++;
 					len++;
 				}
 			}
 			else if (format[i] == '%')
 			{
-				putchar('%');
+				_putchars('%');
 				len++;
 			}
 			else
 			{
-				putchar('%');
-				putchar(format[i]);
+				_putchars('%');
+				_putchars(format[i]);
 				len += 2;
 			}
 		}
