@@ -36,7 +36,7 @@ int _print_integer(va_list m)
 			_putchars(digit + '0');
 			n = n - (digit * e);
 			e = e / 10;
-			l++
+			l++;
 		}
 	}
 	_putchars(lst + '0');
