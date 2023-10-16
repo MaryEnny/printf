@@ -12,7 +12,8 @@ int _printf(const char *format, ...)
 {
 	int len = 0, i = 0, j = 0;
 	va_list m;
-	char *str = va_arg(m, char *), c = va_arg(m, int);
+	char *str = va_arg(m, char *);
+	int c = va_arg(m, int);
 	va_start(m, format);
 	
 	while (format[i])
