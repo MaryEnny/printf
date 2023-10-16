@@ -15,7 +15,7 @@ int _print_str(va_list s)
 	m = va_arg(s, char *);
 	if (m == NULL)
 	{
-		m = "(nil)";
+		m = "(null)";
 		len = _strlen(m);
 		for (i = 0; i < len; i++)
 			_putchars(m[i]);
