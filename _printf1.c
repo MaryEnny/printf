@@ -2,7 +2,7 @@
 
 /**
  * _print_char - function that prints a char
- * @p - parameter
+ * @p: parameter
  * Return: 0
  */
 

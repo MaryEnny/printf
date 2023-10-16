@@ -2,30 +2,16 @@
 
 /**
  * _print_str - function that prints a string
- * @s - argument
+ * @s: argument
  * Return: the lenght of the string
  */
 
-int _print_str(va_list s)
+int _print_str(char *s)
 {
-	char *m;
 	int i;
 	int len;
-
-	m = va_arg(s, char *);
-	if (m == NULL)
-	{
-		m = "(null)";
-		len = _strlen(m);
-		for (i = 0; i < len; i++)
-			_putchars(m[i]);
-		return (len);
-	}
-	else
-	{
-		len = _strlen(m);
-		for (i = 0; i < len; i++)
-			_putchars(m[i]);
-		return (len);
-	}
+	len = _strlen(s);
+	for (i = 0; i < len; i++)
+		_putchars(s[i]);
+	return (len);
 }
