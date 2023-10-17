@@ -19,5 +19,7 @@ int _print_unsigned(va_list m);
 int _print_octal(va_list oct);
 int _print_hexa(va_list hex);
 int _printf_alpha_hex(va_list HEX);
+int _print_hexaext(unsigned int x);
+int _print_string2(va_list arg);
 
 #endif
