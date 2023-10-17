@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int _printf(const char *format, ...);
 int _putchars(char c);
@@ -15,5 +16,8 @@ int _print_dec(va_list m);
 int print_percent(void);
 int print_bin(va_list base);
 int _print_unsigned(va_list m);
+int _print_octal(va_list oct);
+int _print_hexa(va_list hex);
+int _printf_alpha_hex(va_list HEX);
 
 #endif
