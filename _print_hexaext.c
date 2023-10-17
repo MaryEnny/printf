@@ -6,7 +6,7 @@
   *
   * Return: number of characters
   */
-int _print_hexaext(unsigned int x)
+int _print_hexaext(unsigned int num)
 {
 	int i, call = 0;
 	int *arr;
