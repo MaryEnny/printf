@@ -10,5 +10,7 @@ int _printf(const char *format, ...);
 int _putchars(char c);
 int _print_str(char *s);
 int _strlen(char *s);
+int _print_int(va_list m0);
+int _print_dec(va_list m);
 
 #endif
