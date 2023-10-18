@@ -10,26 +10,40 @@
 
 int _printf(const char *format, ...)
 {
-	int len = 0, i = 0;
-	va_list m;
-	va_start(m, format);
-	
-	while (format[i])
+	typedef struct
 	{
-		if (format[i] != '%')
-			len += _putchars(format[i]);
-		else
+		const char *id;
+		int (*f)(va_list);
+	} Specifier;
+
+	Specifier c[] = {
+		{"%c", _print_char}, {"%s", _print_str}, {"%%", print_percent}, {"%d", _print_dec}, {"%i", _print_int}, {"%b", print_bin}, {"%u", _print_unsigned}, {"%o", _print_octal}, {"%x", _print_hexa}, {"%X", _printf_alpha_hex}
+	};
+
+	va_list func;
+	int i = 0, len = 0, var;
+
+	va_start(func, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+Here:
+	while (format[i] != '\0')
+	{
+		var = 10;
+		while (var >= 0)
 		{
-			format++;
-			if (format[i] == 'c'|| format[i] == '%')
-				len += _putchars(va_arg(m, int));
-			else if (format[i] == 's')
+			if (c[var].id[0] == format[i] && c[var].id[1] == format[i + 1])
 			{
-				_print_str(va_arg(m, char *));
+				len += c[var].f(func);
+				i += 2;
+				goto Here;
 			}
+			var++;
 		}
-		format++;
+		_putchars(format[i]);
+		i++;
+		len++;
 	}
-	va_end(m);
-	return len;
+	va_end(func);
+	return (len);
 }

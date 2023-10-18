@@ -1,12 +1,14 @@
 #include "main.h"
-/**
-  * print_percent - function to print percent sign
-  *
-  *Return: percent sign
-  */
 
-int print_percent(void)
+/**
+  * print_percent - prints a percentage sign
+  *
+  * Return: integer
+  */
+int print_percent(va_list per)
 {
+	(void)per;
+
 	_putchars(37);
-	return (0);
+	return (1);
 }
