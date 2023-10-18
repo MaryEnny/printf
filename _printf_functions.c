@@ -7,17 +7,19 @@
  *
  * Return: number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
-	typedef struct
-	{
-		const char *id;
-		int (*f)(va_list);
-	} Specifier;
-
 	Specifier c[] = {
-		{"%c", _print_char}, {"%s", _print_str}, {"%%", print_percent}, {"%d", _print_dec}, {"%i", _print_int}, {"%b", print_bin}, {"%u", _print_unsigned}, {"%o", _print_octal}, {"%x", _print_hexa}, {"%X", _printf_alpha_hex}
+		{"%c", _print_char},
+		{"%s", _print_str},
+		{"%%", print_percent},
+		{"%d", _print_dec},
+		{"%i", _print_int},
+		{"%b", print_bin},
+		{"%u", _print_unsigned},
+		{"%o", _print_octal},
+		{"%x", _print_hexa},
+		{"%X", _printf_alpha_hex}
 	};
 
 	va_list func;
@@ -32,7 +34,7 @@ Here:
 		var = 10;
 		while (var >= 0)
 		{
-			if (c[var].id[0] == format[i] && c[var].id[1] == format[i + 1])
+			if (strcmp(c[var].id, &format[i]) == 0)
 			{
 				len += c[var].f(func);
 				i += 2;

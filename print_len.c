@@ -20,7 +20,7 @@ int _strlen(char *s)
 }
 
 /**
- * _strlen - returns the length of a string
+ * _strlenc- returns the length of a string
  * @s: string
  * Return: length
  */

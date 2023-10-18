@@ -7,6 +7,18 @@
 #include <string.h>
 #include <stdlib.h>
 
+/**
+  * struct id - Struct id
+  *
+  * @id: the identifier
+  * @f: function associated
+  */
+typedef struct
+{
+	const char *id;
+	int (*f)(va_list);
+} Specifier;
+
 int _printf(const char *format, ...);
 int _putchars(char c);
 int _print_str(va_list st);
@@ -20,5 +32,6 @@ int _print_octal(va_list oct);
 int _print_hexa(va_list hex);
 int _printf_alpha_hex(va_list HEX);
 int _print_char(va_list p);
+
 
 #endif

@@ -2,7 +2,7 @@
 
 /**
  * _print_str - function that prints a string
- * @s: argument
+ * @st: argument
  * Return: the lenght of the string
  */
 

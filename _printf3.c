@@ -2,6 +2,7 @@
 
 /**
   * print_percent - prints a percentage sign
+  * @per: variable arguments
   *
   * Return: integer
   */
