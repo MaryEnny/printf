@@ -10,16 +10,11 @@
 int _printf(const char *format, ...)
 {
 	Specifier c[] = {
-		{"%c", _print_char},
-		{"%s", _print_str},
-		{"%%", print_percent},
-		{"%d", _print_dec},
-		{"%i", _print_int},
-		{"%b", print_bin},
-		{"%u", _print_unsigned},
-		{"%o", _print_octal},
-		{"%x", _print_hexa},
-		{"%X", _printf_alpha_hex}
+		{"%c", _print_char}, {"%s", _print_str},
+		{"%%", print_percent}, {"%d", _print_dec},
+		{"%i", _print_int}, {"%b", print_bin},
+		{"%u", _print_unsigned}, {"%o", _print_octal},
+		{"%x", _print_hexa}, {"%X", _printf_alpha_hex}
 	};
 
 	va_list func;
@@ -28,17 +23,16 @@ int _printf(const char *format, ...)
 	va_start(func, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-Here:
-	while (format[i] != '\0')
+	while (format[i] == '\0')
 	{
-		var = 10;
+		var = 9;
 		while (var >= 0)
 		{
-			if (strcmp(c[var].id, &format[i]) == 0)
+			if (c[var].id[0] == format[i] && c[var].id[1] == format[i + 1])
 			{
 				len += c[var].f(func);
 				i += 2;
-				goto Here;
+				break;
 			}
 			var++;
 		}
